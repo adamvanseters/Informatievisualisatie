@@ -6,3 +6,5 @@ root: docs/notebook
 chapters:
 - file: docs/dataset
 - file: docs/datastory
+- file: docs/reflection
+- file: docs/work_distribution
