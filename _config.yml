@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Analyzing the growth of Schiphol Airport # Change this to your book title.
-author: Adam van Seters, Beau de Rooij, Milan Misovic, Sarmad Shakarzadeh # Change this to your name (or your team/organization name).
+author: Adam van Seters, Beau de Rooij, Milan Misovic, Sarmad Shakarzadeh (Group H5) # Change this to your name (or your team/organization name).
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
