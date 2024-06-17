@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/asyncio/base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/beau/miniconda3/envs/jupyterbook/lib/python3.10/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import plotly.express as px
+import pandas as pd
+
+# Read the data from table1.csv
+df = pd.read_csv('table1.csv')
+
+# Create the line plot with Plotly
+fig = px.line(df, x="Jaartal", y="Labour strikes", title='Number of labour strikes per year')
+
+# Customize the plot layout
+fig.update_layout(
+    plot_bgcolor='white',
+    height=400,
+    xaxis=dict(title='Years'),
+    yaxis=dict(title='')  # Remove y-axis tick labels
+)
+
+# Add blue small circles when hovering over a point
+fig.update_traces(
+    mode='lines+markers',
+    hovertemplate='<b>%{x}</b><br>Labor strikes: <b>%{y}</b>' +
+                  '<extra></extra>',  # Use <extra></extra> to disable default hover info
+    line=dict(color='#00a1cd', width=2),
+    marker=dict(color='#00a1cd', size=5),
+)
+
+# Add horizontal lines at y = 0, 10, 20, 30, and 40
+y_values = [0, 10, 20, 30, 40]
+for y in y_values:
+    fig.add_shape(
+        type='line',
+        x0=min(df['Jaartal']),
+        x1=max(df['Jaartal']),
+        y0=y,
+        y1=y,
+        line=dict(color='black'),
+        line_width=0.5
+    )
+
+# Show the plot
+fig.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[2], line 1[0m
+[0;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mplotly[39;00m[38;5;21;01m.[39;00m[38;5;21;01mexpress[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpx[39;00m
+[1;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[1;32m      4[0m [38;5;66;03m# Read the data from table1.csv[39;00m
+
+[0;31mModuleNotFoundError[0m: No module named 'plotly'
+ModuleNotFoundError: No module named 'plotly'
+
