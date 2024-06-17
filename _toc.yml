@@ -2,6 +2,6 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: docs/notebook
+root: _build/html/docs/notebook.html
 chapters:
-- file: docs/dataset.ipynb
+- file: _build/html/docs/dataset.html
